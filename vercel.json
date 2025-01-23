@@ -1,19 +1,7 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "ISLOGISTICA**/*.php",
-        "use": "@vercel/php",
-        "config": {
-          "runtime": "php8.0"
-        }
+    "functions": {
+      "islogistica/*.php": {
+        "runtime": "vercel-php@0.6.2"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/public/$1"
-      }
-    ]
-  }
-  
+    }
+}
