@@ -1,11 +1,23 @@
 {
-    "functions": {
-      "api/index.php": {
-        "runtime": "vercel-php@0.6.2"
-      }
-    },
-    "rewrites": [
-      { "source": "/favicon.ico", "destination": "https://juicy.vercel.app/favicon.ico" },
-      { "source": "/(.*)", "destination": "/api/index.php" }
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/index.php",
+            "use": "vercel-php@0.6.2"
+        },
+        {
+            "src": "/public/**",
+            "use": "vercel/static"
+        }
+    ],
+    "routes" : [
+        {
+            "src": "/(css|js)/(.*)",
+            "dest": "/public/assets/$1/$2"
+        } ,
+        {
+            "src": "/(img|fonts)/(.*)",
+            "dest": "/api/index.php" 
+        }
     ]
-  }
+}
